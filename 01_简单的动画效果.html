@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <meta charset="UTF-8">
+    <title>简单的动画效果</title>
+</head>
+<body>
+    <div  id="title">
+        <p>前端学院</p>
+        <div class="container">
+            <div class="bar"></div>
+        </div>
+        <button>切换样式</button>
+
+    </div>
+
+    <script>
+       $(document).ready(function () {
+           $("button").click(function () {
+               $("p").addClass("show");
+               $('.bar').addClass('active');
+           });
+       });
+
+    </script>
+</body>
+</html>
+
+<style>
+    #title{
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-flow: column wrap;
+        font-size: 18px;
+        transition: width 2s;
+        -moz-transition: width 2s;	/* Firefox 4 */
+        -webkit-transition: width 2s;	/* Safari 和 Chrome */
+        -o-transition: width 2s;	/* Opera */
+    }
+    .show{
+        color: blue;
+    }
+
+    p{
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        text-align: center;
+    }
+    .bar {
+        display: inline-block;
+        width: 100px;
+        transition: 1s all cubic-bezier(.46, 1, .23, 1.52);
+        border-radius: 4px;
+        background-color: blue;
+        height: 10px;
+        box-sizing: border-box;
+    }
+
+    .bar.active {
+        width: 0;
+    }
+</style>
